@@ -17,9 +17,10 @@ import java.io.IOException;
 public class Utilidades {
 
     private final String path = "data";
-/**
- * 
- */
+
+    /**
+     * Metodo para crear la carpeta de la data.
+     */
     public Utilidades() {
         File directory = new File(path);
         if (!directory.exists()) {
@@ -30,23 +31,27 @@ public class Utilidades {
             }
         }
     }
-/**
- * 
- * @param text
- * @param name_file
- * @throws IOException 
- */
+
+    /**
+     * Metodo de guardado.
+     *
+     * @param text
+     * @param name_file
+     * @throws IOException
+     */
     public void save(String text, String name_file) throws IOException {
         try (FileWriter file = new FileWriter(path + File.separatorChar + name_file, true)) {
             file.write(text);
         }
     }
-/**
- * 
- * @param name_file
- * @return
- * @throws IOException 
- */
+
+    /**
+     * Metodo utilizado en listAll para poder registrar los datos al archivo
+     *
+     * @param name_file
+     * @return
+     * @throws IOException
+     */
     private int countRegister(String name_file) throws IOException {
         File fileCheck = new File(path + File.separatorChar + name_file);
         if (!fileCheck.exists() || fileCheck.length() == 0) {
@@ -63,12 +68,15 @@ public class Utilidades {
         }
         return count;
     }
-/**
- * 
- * @param name_file
- * @return
- * @throws IOException 
- */
+
+    /**
+     * metodo aparte que se utiliza en listAll para poder colocar ordenadamente
+     * los datos en cada columna.
+     *
+     * @param name_file
+     * @return
+     * @throws IOException
+     */
     private int countColumn(String name_file) throws IOException {
         File fileCheck = new File(path + File.separatorChar + name_file);
         if (!fileCheck.exists() || fileCheck.length() == 0) {
@@ -83,12 +91,14 @@ public class Utilidades {
             return line.split("\t").length;
         }
     }
-/**
- * 
- * @param name_file
- * @return
- * @throws IOException 
- */
+
+    /**
+     * Metodo para poder listar los datos en un archivo.
+     *
+     * @param name_file
+     * @return
+     * @throws IOException
+     */
     public String[][] listAll(String name_file) throws IOException {
         File fileCheck = new File(path + File.separatorChar + name_file);
         if (!fileCheck.exists() || fileCheck.length() == 0) {
@@ -121,19 +131,23 @@ public class Utilidades {
 
         return data;
     }
-/**
- * 
- * @param tabla 
- */
+
+    /**
+     * Metodo que se utiliza para el ejercicio 13.
+     *
+     * @param tabla
+     */
     public void iniciar(int[][][] tabla) {
         for (int i = 0; i < 10; i++) {
             tabla[i][i][i] = i;
         }
     }
-/**
- * 
- * @param tabla 
- */
+
+    /**
+     * Metodo que se utiliza para el ejercicio 13.
+     *
+     * @param tabla
+     */
     public void cargarTabla(int[][][] tabla) {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {

@@ -13,6 +13,7 @@ import views.tablas.ModeloTablaUsuario;
  * @author alexa
  */
 public class FrmUsuario extends javax.swing.JDialog {
+
     private ModeloTablaUsuario mtu = new ModeloTablaUsuario();
     private Usuario s = new Usuario();
     private Integer[][] matriz;
@@ -25,12 +26,11 @@ public class FrmUsuario extends javax.swing.JDialog {
 
     private void cargar_tabla() {
         try {
-            int filas = ((Integer) spnfilas.getValue()).intValue();
-            int columnas = ((Integer) spncolumnas.getValue()).intValue();
+            Integer filas = ((Integer) spnfilas.getValue()).intValue();
+            Integer columnas = ((Integer) spncolumnas.getValue()).intValue();
             matriz = s.crearMatriz(filas, columnas);
             if (matriz != null) {
                 mtu.setDatos(matriz, filas, columnas);
-           
                 mtu.fireTableStructureChanged();
             } else {
                 JOptionPane.showMessageDialog(this,
@@ -45,7 +45,7 @@ public class FrmUsuario extends javax.swing.JDialog {
         }
     }
 
-      private void eliminarNum() {
+    private void eliminarNum() {
         if (matriz == null) {
             JOptionPane.showMessageDialog(null, "Primero debe crear una matriz.");
             return;
@@ -74,13 +74,14 @@ public class FrmUsuario extends javax.swing.JDialog {
         if (contPrimos == 0) {
             JOptionPane.showMessageDialog(null, "No se encontraron números primos en la matriz.");
             return;
-        }else{
-        s.eliminarNumerosPrimos();
-        mtu.setDatos(matriz, matriz.length, matriz[0].length);
-        JOptionPane.showMessageDialog(null, "Se eliminaron " + contPrimos + " números primos correctamente.");
-        
+        } else {
+            s.eliminarNumerosPrimos();
+            mtu.setDatos(matriz, matriz.length, matriz[0].length);
+            JOptionPane.showMessageDialog(null, "Se eliminaron " + contPrimos + " números primos correctamente.");
+
+        }
     }
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

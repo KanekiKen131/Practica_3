@@ -12,14 +12,16 @@ public class Casas {
 
     private Utilidades u = new Utilidades();
     private final String file_name = "Casas.dat";
-/**
- * 
- * @param nombre
- * @param largo
- * @param ancho
- * @param pisos
- * @return 
- */
+
+    /**
+     * Metodo para guardar archivos.
+     *
+     * @param nombre
+     * @param largo
+     * @param ancho
+     * @param pisos
+     * @return
+     */
     public boolean guardar_archivo(String nombre, Float largo, Float ancho, int pisos) {
         String dimensiones = largo + "," + ancho + "," + pisos;
         String data = generar_numeracion() + "\t" + nombre + "\t" + dimensiones + "\n";
@@ -31,10 +33,12 @@ public class Casas {
             return false;
         }
     }
-/**
- * 
- * @return 
- */
+
+    /**
+     * Metodo para listar los datos en la data.
+     *
+     * @return
+     */
     public String[][] listar() {
         try {
             String[][] data = u.listAll(file_name);
@@ -47,10 +51,12 @@ public class Casas {
             return new String[0][0];
         }
     }
-/**
- * 
- * @return 
- */
+
+    /**
+     * Metodo para asignarle un numero a la data.
+     *
+     * @return
+     */
     public String generar_numeracion() {
         String[][] listado = listar();
         int num = (listado != null) ? listado.length + 1 : 1;

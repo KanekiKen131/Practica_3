@@ -1,5 +1,5 @@
-
 package controller;
+
 import java.util.Random;
 
 /**
@@ -8,22 +8,24 @@ import java.util.Random;
  */
 public class Laberinto {
 
-    private static final String MURO = "";
-    private static final String CAMINO = " ";
-    private static final String ENTRADA = "I";
-    private static final String SALIDA = "F";
+    private String MURO = "0";
+    private String CAMINO = " ";
+    private String ENTRADA = "I";
+    private String SALIDA = "F";
 
     private Random random;
 
     public Laberinto() {
         this.random = new Random();
     }
-/**
- * 
- * @param dimension
- * @return
- * @throws IllegalArgumentException 
- */
+
+    /**
+     * Metodo principal para generar el laberinto.
+     *
+     * @param dimension
+     * @return
+     * @throws IllegalArgumentException
+     */
     public String[][] generarLaberinto(int dimension) throws IllegalArgumentException {
         if (dimension < 10 || dimension > 100) {
             throw new IllegalArgumentException("La dimensión debe estar entre 10 y 100");
@@ -36,18 +38,22 @@ public class Laberinto {
 
         return laberinto;
     }
-/**
- * 
- * @return 
- */
+
+    /**
+     * Metodo para calcular el porcentaje de los muros a generar.
+     *
+     * @return
+     */
     private double calcularMuros() {
         double porcentaje = 40 + (random.nextDouble() * 20);
         return porcentaje / 100.0;
     }
-/**
- * 
- * @param laberinto 
- */
+
+    /**
+     * Metodo para poder generar caminos aleatorios
+     *
+     * @param laberinto
+     */
     private void llenarCaminos(String[][] laberinto) {
         for (int i = 0; i < laberinto.length; i++) {
             for (int j = 0; j < laberinto[i].length; j++) {
@@ -55,11 +61,13 @@ public class Laberinto {
             }
         }
     }
-/**
- * 
- * @param laberinto
- * @param porcentajeMuros 
- */
+
+    /**
+     * Este metodo me indica que me coloca los muros aleatoriamente.
+     *
+     * @param laberinto
+     * @param porcentajeMuros
+     */
     private void colocarMuros(String[][] laberinto, double porcentajeMuros) {
         int dimension = laberinto.length;
         int totalCeldas = dimension * dimension;
@@ -77,18 +85,20 @@ public class Laberinto {
             }
         }
     }
-/**
- * 
- * @param laberinto 
- */
+
+    /**
+     * Este metodo me colocara una entrada y salida ubicadas al inicio y final
+     * de la fila del laberinto.
+     *
+     * @param laberinto
+     */
     private void colocarEntradaSalida(String[][] laberinto) {
         int dimension = laberinto.length;
         boolean entradaColocada = false;
         int intentosEntrada = 0;
         while (!entradaColocada && intentosEntrada < 100) {
-            int filaEntrada = 0; 
+            int filaEntrada = 0;
             int columnaEntrada = random.nextInt(dimension);
-
             if (!laberinto[filaEntrada][columnaEntrada].equals(MURO)) {
                 laberinto[filaEntrada][columnaEntrada] = ENTRADA;
                 entradaColocada = true;
@@ -118,4 +128,4 @@ public class Laberinto {
             intentosSalida++;
         }
     }
-   }
+}

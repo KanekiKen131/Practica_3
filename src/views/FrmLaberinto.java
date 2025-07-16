@@ -25,7 +25,7 @@ public class FrmLaberinto extends javax.swing.JDialog {
     public FrmLaberinto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        pintar_tabla();
+        // pintar_tabla();
     }
 
     private void pintar_tabla() {
@@ -53,7 +53,7 @@ public class FrmLaberinto extends javax.swing.JDialog {
             } else {
                 mtl.setLaberinto(datos);
                 tbllaberinto.setModel(mtl);
-               
+
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this,
@@ -62,7 +62,6 @@ public class FrmLaberinto extends javax.swing.JDialog {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-
 
     private void limpiar() {
         try {
@@ -104,11 +103,11 @@ public class FrmLaberinto extends javax.swing.JDialog {
                         c.setForeground(Color.WHITE);
                         break;
                     default:
-                        c.setBackground(Color.BLUE);
+                        c.setBackground(Color.BLACK);
                         c.setForeground(Color.BLACK);
                 }
             } else {
-                c.setBackground(Color.LIGHT_GRAY);
+                c.setBackground(Color.black);
                 c.setForeground(Color.BLACK);
             }
             return c;

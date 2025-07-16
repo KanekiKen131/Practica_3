@@ -11,7 +11,7 @@ import controller.Casas;
 public class GuadadoCasa {
     public static void main(String[] args) {
         Casas c = new Casas();
-        if (c.guardar_archivo("hola", 120.5f, 123f, 0)){
+        if (c.guardar_archivo("todo", 120.5f, 123f, 4)){
             
             System.out.println("Se ha guardado correctamente");
         }else

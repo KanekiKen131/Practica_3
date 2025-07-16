@@ -30,6 +30,8 @@ public class ModeloTablaUsuario extends AbstractTableModel {
     }
 
     @Override
+    //aqui indico que cuando se elimina un numero elegido por el usuario o de numeros primos se reemplazaran dentro de la tabla como -1 y -2 pero visualmente
+    //Se reemplazara con un guion -
     public Object getValueAt(int rowIndex, int columnIndex) {
         if (datos != null && rowIndex < datos.length && columnIndex < datos[0].length) {
             Integer valor = datos[rowIndex][columnIndex];

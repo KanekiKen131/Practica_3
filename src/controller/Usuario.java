@@ -13,18 +13,20 @@ import java.util.Random;
 public class Usuario {
 
     private Integer[][] matriz;
-   
+
     Random r = new Random();
 
     public void setMatriz(Integer[][] matriz) {
         this.matriz = matriz;
     }
-/**
- * 
- * @param filas
- * @param columnas
- * @return 
- */
+
+    /**
+     * Metodo para poder crear la matriz
+     *
+     * @param filas
+     * @param columnas
+     * @return
+     */
     public Integer[][] crearMatriz(int filas, int columnas) {
         Integer[][] matriz = new Integer[filas][columnas];
 
@@ -37,12 +39,14 @@ public class Usuario {
 
         return matriz;
     }
-/**
- * 
- * @param numero
- * @param matriz
- * @return 
- */
+
+    /**
+     * Metodo para eliminar un numero que el usuario quiera eliminar.
+     *
+     * @param numero
+     * @param matriz
+     * @return
+     */
     public boolean eliminarNumero(int numero, Integer[][] matriz) {
         if (matriz == null) {
             return false;
@@ -58,9 +62,10 @@ public class Usuario {
         }
         return encontrado;
     }
-/**
- * 
- */
+
+    /**
+     * Metodo para que el usuario pueda eliminar numero primos .
+     */
     public void eliminarNumerosPrimos() {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
@@ -70,10 +75,12 @@ public class Usuario {
             }
         }
     }
-/**
- * 
- * @return 
- */
+
+    /**
+     * metodo aparte para poder contar cuantos numero primos hay en la matriz
+     *
+     * @return
+     */
     public int nrPrimos() {
         int contador = 0;
         for (int i = 0; i < matriz.length; i++) {
@@ -85,11 +92,13 @@ public class Usuario {
         }
         return contador;
     }
-/**
- * 
- * @param numero
- * @return 
- */
+
+    /**
+     * Metodo para poder verificar si un numero es primo.
+     *
+     * @param numero
+     * @return
+     */
     private boolean Primo(int numero) {
         if (numero <= 1) {
             return false;

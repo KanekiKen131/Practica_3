@@ -84,12 +84,4 @@ public class ModeloTablaLaberinto extends AbstractTableModel {
         return false;
     }
 
-
-    public void actualizarCelda(int fila, int columna, String valor) {
-        if (fila >= 0 && fila < laberinto.length
-                && columna >= 0 && columna < laberinto[fila].length) {
-            laberinto[fila][columna] = valor;
-            fireTableCellUpdated(fila, columna);
-        }
-    }
-    }
+}
